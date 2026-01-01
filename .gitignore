@@ -1,6 +1,36 @@
 # .NET
 bin/
 obj/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+.vscode/
+.idea/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
 
 # Config secrets
 appsettings.Development.json
@@ -9,6 +39,13 @@ appsettings.Development.json
 # Environment
 .env
 
-# IDE
-.vscode/
-.idea/
+# Node
+node_modules/
+dist/
+.npm
+.eslintcache
+
+# Misc
+*.log
+*.tmp
+*.temp
