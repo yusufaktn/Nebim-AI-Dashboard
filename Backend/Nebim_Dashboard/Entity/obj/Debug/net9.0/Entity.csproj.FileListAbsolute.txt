@@ -1,0 +1,12 @@
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.csproj.AssemblyReference.cache
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.AssemblyInfoInputs.cache
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.AssemblyInfo.cs
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.csproj.CoreCompileInputs.cache
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\bin\Debug\net9.0\Entity.deps.json
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\bin\Debug\net9.0\Entity.dll
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\bin\Debug\net9.0\Entity.pdb
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.dll
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\refint\Entity.dll
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\Entity.pdb
+d:\Projects\Nebim_AdminDashboard\Backend\Nebim_Dashboard\Entity\obj\Debug\net9.0\ref\Entity.dll

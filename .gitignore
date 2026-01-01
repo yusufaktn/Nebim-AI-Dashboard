@@ -1,0 +1,14 @@
+# .NET
+bin/
+obj/
+
+# Config secrets
+appsettings.Development.json
+*.secrets.json
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/

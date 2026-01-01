@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nebim V3 AI Assistant</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2463eb",
+              "primary-hover": "#1d4ed8",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111621",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1a202c",
+              "border-light": "#e2e8f0",
+              "text-primary": "#111827",
+              "text-secondary": "#6b7280",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem", 
+              "lg": "1rem", 
+              "xl": "1.5rem", 
+              "2xl": "2rem",
+              "full": "9999px"
+            },
+            boxShadow: {
+                'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                'glow': '0 0 15px rgba(36, 99, 235, 0.2)'
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-primary h-screen flex overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-gray-800 flex flex-col justify-between shrink-0 z-20 transition-all duration-300">
+<div class="flex flex-col h-full">
+<!-- Brand / Logo Area -->
+<div class="h-16 flex items-center px-6 border-b border-border-light dark:border-gray-800">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">token</span>
+<span class="font-bold text-lg tracking-tight">Nebim<span class="text-primary">V3</span></span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">home</span>
+<span class="font-medium text-sm">Ana Sayfa</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">trending_up</span>
+<span class="font-medium text-sm">Satış &amp; Ciro</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">inventory_2</span>
+<span class="font-medium text-sm">Stok Yönetimi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-medium transition-colors" href="#">
+<span class="material-symbols-outlined fill-1">smart_toy</span>
+<span class="text-sm">AI Asistan</span>
+</a>
+<div class="pt-4 mt-4 border-t border-border-light dark:border-gray-800">
+<p class="px-3 text-xs font-semibold text-text-secondary uppercase tracking-wider mb-2">Sistem</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="font-medium text-sm">Ayarlar</span>
+</a>
+</div>
+</nav>
+<!-- User Profile (Bottom Sidebar) -->
+<div class="p-4 border-t border-border-light dark:border-gray-800">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<div class="w-9 h-9 rounded-full bg-cover bg-center border border-gray-200" data-alt="User profile picture of a professional manager" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDG_cTrWIrU29PjZ6xlshQHUdisz0GvTgoho7jUXdpgXbsTqBgeKHbiy7VL7hcy9Ese85zC4EXpi1gkFrN41KgBnEpre4Oao6DqNxsZhzCR8Zv4dBGME876Q3wX9b_-v_lY9WooFFhDJ_oSe5zrWoXn2TDtuQfKrrj2Rnk2dzcfB2Ck4hPQa6d9MTbJ3UIZsiKWWRFT9n50pDSwaUYIlrFmTcItxZgaF-DNC4U6RkTqzPuMrZd0Ykrc92_P2h8QhaqttA8XZb_lvkU');"></div>
+<div class="flex flex-col">
+<p class="text-sm font-semibold text-text-primary">Yönetici</p>
+<p class="text-xs text-text-secondary">Admin Paneli</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full bg-background-light dark:bg-background-dark relative">
+<!-- Header -->
+<header class="h-16 bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-gray-800 flex items-center justify-between px-8 shrink-0">
+<h1 class="text-lg font-semibold text-text-primary">Yapay Zeka Asistanı</h1>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-text-secondary hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-surface-light dark:border-surface-dark"></span>
+</button>
+<div class="h-8 w-[1px] bg-border-light dark:bg-gray-700 mx-1"></div>
+<div class="text-sm text-text-secondary">Nebim V3 v4.2.0</div>
+</div>
+</header>
+<!-- Chat Container -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 flex flex-col items-center">
+<div class="w-full max-w-[900px] flex flex-col gap-6 pb-4">
+<!-- Welcome Section (Conditional - would disappear as chat grows, but keeping for initial view) -->
+<div class="flex flex-col items-center justify-center py-10 text-center space-y-4">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shadow-glow mb-4">
+<span class="material-symbols-outlined text-white text-3xl">auto_awesome</span>
+</div>
+<h2 class="text-2xl font-bold text-text-primary">Hoşgeldin, Yönetici</h2>
+<p class="text-text-secondary max-w-lg">Nebim V3 verilerinizle ilgili size nasıl yardımcı olabilirim? Aşağıdaki önerilerden birini seçebilir veya sorunuzu yazabilirsiniz.</p>
+</div>
+<!-- Suggestion Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<button class="text-left group flex flex-col gap-3 p-4 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-gray-700 rounded-xl hover:border-primary/50 hover:shadow-soft transition-all duration-200">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg w-fit group-hover:bg-primary group-hover:text-white text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+</div>
+<span class="text-sm font-medium text-text-primary">Geçen hafta en çok hangi renk sattı?</span>
+</button>
+<button class="text-left group flex flex-col gap-3 p-4 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-gray-700 rounded-xl hover:border-primary/50 hover:shadow-soft transition-all duration-200">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg w-fit group-hover:bg-primary group-hover:text-white text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+<span class="text-sm font-medium text-text-primary">Hangi mağazanın performansı düşük?</span>
+</button>
+<button class="text-left group flex flex-col gap-3 p-4 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-gray-700 rounded-xl hover:border-primary/50 hover:shadow-soft transition-all duration-200">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg w-fit group-hover:bg-primary group-hover:text-white text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">inventory</span>
+</div>
+<span class="text-sm font-medium text-text-primary">Gelecek ay ne kadar stok almalıyım?</span>
+</button>
+</div>
+<!-- Date Divider -->
+<div class="flex items-center justify-center my-4">
+<span class="text-xs font-medium text-text-secondary bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">Bugün</span>
+</div>
+<!-- User Message -->
+<div class="flex justify-end w-full">
+<div class="flex items-end gap-3 max-w-[80%] md:max-w-[70%] flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0 border border-gray-200" data-alt="User profile picture small" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEHfSbOeV8M2Pi2Qy33trdv9RmrVK4N-J-8AE_nnqaap0H7RzAoj44ENrufFARC-IxQPEKP3OJcV0rqJwylTs5k4CGxt2PFzDuSLhHuD1arEauyYg4UVHVoAtDx-9xIwziCS9QhvkMjgdSa_rGaT1mqGHr3wwHR8H6DIph9pJ6jTU_xHM8ue3vdBuA8x0SObbxTiu6ciBrfBk5dKubvieEvDh4NKTamkij90PnJAdkyvpe2-EO58_CJLWoTkH6ziXXlcI00O5yDU0');"></div>
+<div class="flex flex-col items-end gap-1">
+<div class="bg-primary text-white px-5 py-3.5 rounded-2xl rounded-tr-sm shadow-sm text-[15px] leading-relaxed">
+                                Geçen ay İstanbul mağazalarındaki satış durumunu özetler misin?
+                            </div>
+<span class="text-[11px] text-text-secondary mr-1">10:42</span>
+</div>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex justify-start w-full">
+<div class="flex items-start gap-3 max-w-[80%] md:max-w-[75%]">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center shrink-0 text-white shadow-sm mt-1">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-white dark:bg-gray-800 border border-border-light dark:border-gray-700 text-text-primary px-5 py-4 rounded-2xl rounded-tl-sm shadow-sm text-[15px] leading-relaxed">
+<p class="mb-3">Elbette, Ekim 2023 verilerine göre İstanbul genelindeki 12 mağazanızda toplam ciro <strong>4.2M TL</strong> olarak gerçekleşti. Bu, geçen aya göre %12'lik bir artış anlamına geliyor.</p>
+<div class="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-3 mb-3 border border-gray-100 dark:border-gray-700">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-text-secondary uppercase">En İyi Performans</span>
+<span class="text-xs font-bold text-green-600 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +18%
+                                        </span>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">store</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-text-primary">Nişantaşı Mağazası</p>
+<p class="text-xs text-text-secondary">850.000 TL Ciro</p>
+</div>
+</div>
+</div>
+<p>Stok devir hızında ise Kadıköy şubesi diğerlerine göre biraz yavaş kalmış görünüyor. Detaylı raporu indirmek ister misiniz?</p>
+</div>
+<span class="text-[11px] text-text-secondary ml-1">10:42</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-4 md:px-8 md:pb-8 pt-2 bg-background-light dark:bg-background-dark/95 backdrop-blur-sm z-10 w-full flex justify-center">
+<div class="w-full max-w-[900px] relative">
+<form class="relative flex items-end gap-2 bg-white dark:bg-gray-800 p-2 rounded-xl shadow-lg border border-border-light dark:border-gray-700 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
+<button class="p-2 text-text-secondary hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors" title="Dosya Ekle" type="button">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<textarea class="w-full max-h-[120px] py-2.5 px-2 bg-transparent border-0 focus:ring-0 text-text-primary placeholder-text-secondary resize-none text-[15px]" placeholder="Nebim verilerinizle ilgili bir soru sorun..." rows="1" style="min-height: 44px;"></textarea>
+<button class="p-2 bg-primary hover:bg-primary-hover text-white rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed mb-[1px]" type="button">
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+<div class="text-center mt-2">
+<p class="text-[11px] text-text-secondary">Yapay zeka asistanı hata yapabilir. Önemli bilgileri kontrol ediniz.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>
